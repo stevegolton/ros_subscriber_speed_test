@@ -2,7 +2,7 @@
 #include <std_msgs/Empty.h>
 #include <std_srvs/Empty.h>
 #include <actionlib/server/simple_action_server.h>
-#include <slow_subscriber_example/EmptyAction.h>
+#include <subscriber_speed_test/EmptyAction.h>
 
 bool service_handler(std_srvs::Empty::Request &req, std_srvs::Empty::Response &res)
 {
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     std_msgs::Empty msg;
     latched_topic.publish(msg);
 
-    actionlib::SimpleActionServer<slow_subscriber_example::EmptyAction> action_server(nh, "action", false);
+    actionlib::SimpleActionServer<subscriber_speed_test::EmptyAction> action_server(nh, "action", false);
     action_server.start();
 
     ROS_INFO("Started server");

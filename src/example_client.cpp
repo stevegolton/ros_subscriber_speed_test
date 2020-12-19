@@ -2,7 +2,7 @@
 #include <std_msgs/Empty.h>
 #include <std_srvs/Empty.h>
 #include <actionlib/client/simple_action_client.h>
-#include <slow_subscriber_example/EmptyAction.h>
+#include <subscriber_speed_test/EmptyAction.h>
 
 void test_service_waitForExistence()
 {
@@ -43,7 +43,7 @@ void test_action_waitForService()
     for (int i = 0; i < COUNT; i++)
     {
         auto before = ros::Time::now();
-        actionlib::SimpleActionClient<slow_subscriber_example::EmptyAction> action_client("action", true);
+        actionlib::SimpleActionClient<subscriber_speed_test::EmptyAction> action_client("action", true);
         action_client.waitForServer();
         total_time += (ros::Time::now() - before);
     }
