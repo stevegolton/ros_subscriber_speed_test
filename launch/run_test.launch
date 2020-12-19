@@ -1,0 +1,4 @@
+<launch>
+    <node name="example_client" pkg="slow_subscriber_example" type="slow_server_node" output="screen"/>
+    <node name="example_server" pkg="slow_subscriber_example" type="slow_client_node" output="screen" required="true"/>
+</launch>
