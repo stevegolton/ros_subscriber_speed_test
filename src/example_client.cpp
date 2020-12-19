@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     ros::init(argc, argv, "example_client");
 
     ros::NodeHandle nh;
-    printf("Allowing ample time for the server to come up\n");
+    printf("Allowing ample time for the server to come up...\n");
     ros::Duration(3).sleep();
 
     printf("Starting tests...\n");

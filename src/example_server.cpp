@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     actionlib::SimpleActionServer<subscriber_speed_test::EmptyAction> action_server(nh, "action", false);
     action_server.start();
 
-    ROS_INFO("Started server");
+    printf("Started server");
     ros::spin();
 
     return 0;
