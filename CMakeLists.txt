@@ -135,8 +135,8 @@ ${catkin_INCLUDE_DIRS}
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(slow_server_node src/example_server.cpp)
-add_executable(slow_client_node src/example_client.cpp)
+add_executable(example_server_node src/example_server.cpp)
+add_executable(example_client_node src/example_client.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -146,15 +146,15 @@ add_executable(slow_client_node src/example_client.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(slow_server_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(slow_client_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(example_server_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(example_client_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(slow_server_node
+target_link_libraries(example_server_node
   ${catkin_LIBRARIES}
 )
 
-target_link_libraries(slow_client_node
+target_link_libraries(example_client_node
   ${catkin_LIBRARIES}
 )
 
