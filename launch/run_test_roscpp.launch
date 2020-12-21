@@ -1,0 +1,4 @@
+<launch>
+    <node name="example_client" pkg="subscriber_speed_test" type="example_server_node" output="screen"/>
+    <node name="example_server" pkg="subscriber_speed_test" type="example_client_node" output="screen" required="true"/>
+</launch>
