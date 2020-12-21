@@ -39,7 +39,7 @@ void test_topic_waitForMessage()
 void test_topic_presub_waitForMessage()
 {
 	ros::NodeHandle nh;
-	ros::Subscriber presub = nh.subscribe<std_msgs::Empty>("latched_topic", 1, [](std_msgs::EmptyConstPtr){});
+	ros::Subscriber presub = nh.subscribe<std_msgs::Empty>("latched_topic", 1, [](std_msgs::EmptyConstPtr) {});
 	ros::Duration(1.0).sleep();
 
 	ros::Duration total_time;
@@ -92,7 +92,7 @@ void test_action_prewait_waitForService()
 	ros::Duration total_time;
 	for (int i = 0; i < COUNT; i++)
 	{
-		
+
 		actionlib::SimpleActionClient<subscriber_speed_test::EmptyAction> action_client("action", true);
 		action_client.waitForServer();
 
@@ -114,18 +114,16 @@ void test_tf2_sub()
 
 		geometry_msgs::TransformStamped transform;
 		auto before = ros::Time::now();
-		bool not_found = true;
-		while (not_found)
+		while (true)
 		{
 			try
 			{
-				transform = tfBuffer.lookupTransform("world", "example",
-													 ros::Time(0));
-				not_found = false;
+				transform = tfBuffer.lookupTransform("world", "example", ros::Time(0));
+				break;
 			}
 			catch (tf2::TransformException ex)
 			{
-				ros::Duration(0.01).sleep();
+				ros::Duration(0.001).sleep();
 			}
 		}
 		total_time += (ros::Time::now() - before);
@@ -147,14 +145,12 @@ void test_tf2_presub_sub()
 
 		geometry_msgs::TransformStamped transform;
 		auto before = ros::Time::now();
-		bool not_found = true;
-		while (not_found)
+		while (true)
 		{
 			try
 			{
-				transform = tfBuffer.lookupTransform("world", "example",
-													 ros::Time(0));
-				not_found = false;
+				transform = tfBuffer.lookupTransform("world", "example", ros::Time(0));
+				break;
 			}
 			catch (tf2::TransformException ex)
 			{
